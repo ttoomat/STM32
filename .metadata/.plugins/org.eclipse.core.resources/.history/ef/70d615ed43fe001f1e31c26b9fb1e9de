@@ -1,0 +1,26 @@
+/*
+ * logic.c
+ *
+ *  Created on: Mar 10, 2025
+ *      Author: tt
+ */
+
+/* A target for the snake.
+ */
+struct apple {
+	int x, y;
+};
+
+/* A structure for snake.
+ * Linked list and coordinates.
+ */
+struct snake {
+	struct snake * next;
+	int c, r;
+};
+
+/* Call this function in setup & when apple is eaten.
+ */
+struct apple generate_apple();
+
+

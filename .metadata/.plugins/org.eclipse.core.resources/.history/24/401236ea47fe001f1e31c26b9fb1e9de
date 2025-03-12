@@ -1,0 +1,41 @@
+/*
+ * logic.c
+ *
+ *  Created on: Mar 10, 2025
+ *      Author: tt
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* A target for the snake.
+ */
+struct apple {
+	int x, y;
+};
+
+/* A structure for snake.
+ * Linked list and coordinates.
+ */
+struct snake {
+	struct snake * next;
+	int c, r;
+};
+
+/* Call this function in setup & when apple is eaten.
+ */
+struct apple generate_apple();
+
+void start(int ** snake) {
+	int n = 3, m = 2;
+	snake = (int **) malloc(n * sizeof(int *));
+	for (int i = 0; i < n; ++i) {
+		arr[i] = (int *) malloc(m * sizeof(int));
+	}
+
+	snake = {
+		{3, 3}, {3, 2}, {3, 1}
+	};
+	int * arr_ptr = &arr;
+    return &arr_ptr;
+}
