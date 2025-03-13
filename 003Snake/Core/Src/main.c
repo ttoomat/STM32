@@ -73,7 +73,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-setup_snake();
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -86,7 +86,7 @@ setup_snake();
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  setup_snake();
   /* USER CODE END 2 */
 
   /* Infinite loop */

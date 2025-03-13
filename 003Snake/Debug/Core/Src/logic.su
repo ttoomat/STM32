@@ -1,6 +1,8 @@
-../Core/Src/logic.c:46:6:generate_apple	16	static
-../Core/Src/logic.c:58:6:end_game	16	static
-../Core/Src/logic.c:72:9:check_intersection	4	static
-../Core/Src/logic.c:78:6:longer_snake	16	static
-../Core/Src/logic.c:101:6:setup_snake	8	static
-../Core/Src/logic.c:108:6:run_snake	8	static
+../Core/Src/logic.c:33:6:generate_apple	16	static
+../Core/Src/logic.c:48:6:move_snake	16	static
+../Core/Src/logic.c:86:6:end_game	16	static
+../Core/Src/logic.c:98:9:check_intersection	4	static
+../Core/Src/logic.c:102:9:check_apple	4	static
+../Core/Src/logic.c:108:6:longer_snake	8	static
+../Core/Src/logic.c:117:6:setup_snake	16	static
+../Core/Src/logic.c:128:6:run_snake	8	static

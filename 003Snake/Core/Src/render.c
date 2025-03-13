@@ -55,8 +55,20 @@ void render_snake(uint8_t snake[64][2], uint8_t length) {
 		frame[row][col] = 1;
 	}
 	draw_columns(frame);
+/*
+    // чтоб картинка поотображалась
+	int cnt = 20; // убогий таймер...
+	while (cnt > 0) {
+	  render_snake(snake, length);
+	  cnt--;
+	}*/
+	/*
+	clock_t time = clock();
 
-	//HAL_Delay(100);
+	while ((clock() - time) / CLOCKS_PER_SEC < 1) {
+	render_snake(snake, snake_length);
+	}
+	*/
 }
 
 
