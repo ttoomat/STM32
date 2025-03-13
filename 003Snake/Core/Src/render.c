@@ -1,5 +1,5 @@
 /*
- * render.c
+ * render.c (003Snake)
  *
  *  Created on: Mar 10, 2025
  *      Author: tt
@@ -16,23 +16,47 @@ GPIO_TypeDef *col_ports[] = {C1_GPIO_Port, C2_GPIO_Port, C3_GPIO_Port, C4_GPIO_P
 
 /* Draw matrix column by column.
  */
-void draw_columns(int matrix[8][8]) {
-	for (int j = 0; j < 8; ++j) {
+void draw_columns(uint8_t matrix[8][8]) {
+	for (uint8_t j = 0; j < 8; ++j) {
 		// activate the row
 		HAL_GPIO_WritePin(col_ports[j], cols[j], GPIO_PIN_RESET);
 		// draw all rows of the column
-		for (int i = 0; i < 8; ++i) {
+		for (uint8_t i = 0; i < 8; ++i) {
 			if (matrix[i][j]) {
 				HAL_GPIO_WritePin(row_ports[i], rows[i], GPIO_PIN_SET);
 			}
 		}
 		HAL_Delay(1);
 		// turn off all the leds of this column
-		for (int i = 0; i < 8; ++i) {
+		for (uint8_t i = 0; i < 8; ++i) {
 			HAL_GPIO_WritePin(row_ports[i], rows[i], GPIO_PIN_RESET);
 		}
 		//deactivate the row
 		HAL_GPIO_WritePin(col_ports[j], cols[j], GPIO_PIN_SET);
 	}
 }
+
+/* TODO: add apple
+ */
+void render_snake(uint8_t snake[64][2], uint8_t length) {
+	uint8_t frame[8][8] = {
+			{0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 0, 0}
+	};
+	for (uint8_t i = 0; i < 3; ++i) {
+		uint8_t row = snake[i][0],
+		    col = snake[i][1];
+		frame[row][col] = 1;
+	}
+	draw_columns(frame);
+
+	//HAL_Delay(100);
+}
+
 

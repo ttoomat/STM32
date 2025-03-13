@@ -1,7 +1,7 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.h
+  * @file           : main.h (003Snake)
   * @brief          : Header for main.c file.
   *                   This file contains the common defines of the application.
   ******************************************************************************

@@ -1,7 +1,7 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.c
+  * @file           : main.c (003Snake)
   * @brief          : Main program body
   ******************************************************************************
   * @attention
@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "logic.h"
+#include "render.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -72,7 +73,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+setup_snake();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -94,6 +95,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
+    run_snake();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

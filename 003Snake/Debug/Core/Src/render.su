@@ -1,1 +1,2 @@
-../Core/Src/render.c:19:6:draw_columns	32	static
+../Core/Src/render.c:19:6:draw_columns	24	static
+../Core/Src/render.c:41:6:render_snake	96	static
