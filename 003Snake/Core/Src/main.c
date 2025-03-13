@@ -22,7 +22,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "logic.h"
-#include "render.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,7 +93,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
     run_snake();
     /* USER CODE BEGIN 3 */
   }
@@ -195,10 +193,59 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : Up_Pin Left_Pin Right_Pin */
+  GPIO_InitStruct.Pin = Up_Pin|Left_Pin|Right_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : Down_Pin */
+  GPIO_InitStruct.Pin = Down_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(Down_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+  switch (GPIO_Pin) {
+  case Up_Pin: {
+	  set_direction(UP);
+	  break;
+  }
+  case Down_Pin: {
+	  set_direction(DOWN);
+	  break;
+    }
+  case Right_Pin: {
+	  set_direction(RIGHT);
+  	  break;
+    }
+  case Left_Pin: {
+	  set_direction(LEFT);
+  	  break;
+    }
+  /*
+  default: {
+	  _NOP();
+	  break;
+  }*/
+  }
+}
 /* USER CODE END 4 */
 
 /**

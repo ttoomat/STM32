@@ -13,10 +13,7 @@
 
 #include "stm32f4xx_hal.h" // for Hal delay
 #include "render.h"
-
-enum dir {
-	RIGHT, LEFT, UP, DOWN
-};
+#include "logic.h"
 
 // game global variables
 uint8_t snake_length = 3; // current snake length
@@ -25,7 +22,7 @@ uint8_t snake[64][2] = {{3, 3}, {3, 2}, {3, 1}}; // initial snake
 uint8_t game_flag = 1; // this flag is 0 when the game is finished
 uint8_t apple_x, apple_y; // snake's target coordinates
 
-enum dir direction = DOWN;
+enum dir prev = UP, direction = DOWN;
 
 /* Set a target for snake.
  * Call this function in setup & when apple is eaten.
@@ -42,6 +39,39 @@ void generate_apple() {
 	}
 }
 
+void set_direction(enum dir new_direction) {
+	switch (new_direction) {
+	case UP: {
+		if (prev != DOWN) {
+			prev = direction;
+			direction = new_direction;
+		}
+		break;
+	}
+	case DOWN: {
+		if (prev != UP) {
+			prev = direction;
+			direction = new_direction;
+		}
+		break;
+	}
+	case LEFT: {
+		if (prev != RIGHT) {
+			prev = direction;
+			direction = new_direction;
+		}
+		break;
+	}
+	case RIGHT: {
+		if (prev != LEFT) {
+			prev = direction;
+			direction = new_direction;
+		}
+		break;
+	}
+	}
+}
+
 /* Move snake according to the direction.
  */
 // TODO: if snake is ###@, it cannot turn left, but it is not game over...
@@ -53,7 +83,7 @@ void move_snake() {
 	}
 	switch (direction) {
 	// TODO: если змейка с границами, то % 8 не надо. И после move любом случае надо прогонять check_intersections
-	case DOWN:{
+	case DOWN: {
 		snake[0][0] = (snake[1][0] + 1) % 8;
 		snake[0][1] = snake[1][1];
 		break;

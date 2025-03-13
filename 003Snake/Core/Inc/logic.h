@@ -8,6 +8,12 @@
 #ifndef INC_LOGIC_H_
 #define INC_LOGIC_H_
 
+enum dir {
+	RIGHT, LEFT, UP, DOWN
+};
+
+void set_direction(enum dir new_direction);
+
 /* Setup snake & apple position.
  */
 void setup_snake();
