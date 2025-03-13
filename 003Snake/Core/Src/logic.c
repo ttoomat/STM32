@@ -16,7 +16,7 @@
 #include "logic.h"
 
 // game global variables
-uint8_t snake_length = 3; // current snake length
+volatile uint8_t snake_length = 3; // current snake length
 uint8_t coords = 2; // number of coordinates
 uint8_t snake[64][2] = {{3, 3}, {3, 2}, {3, 1}}; // initial snake
 uint8_t game_flag = 1; // this flag is 0 when the game is finished
@@ -28,7 +28,6 @@ enum dir prev = UP, direction = DOWN;
  * Call this function in setup & when apple is eaten.
  */
 void generate_apple() {
-	srand(clock()); // setup random
 	apple_x = rand() % 8;
 	apple_y = rand() % 8;
 	// apple cannot spawn in snake
@@ -74,7 +73,6 @@ void set_direction(enum dir new_direction) {
 
 /* Move snake according to the direction.
  */
-// TODO: if snake is ###@, it cannot turn left, but it is not game over...
 void move_snake() {
 	// в массиве snake надо подвинуть все элементы на 1 назад, а на первое место поставить последний в зависимости от dir
 	for (int i = snake_length - 1; i > 0; --i) {
@@ -107,7 +105,7 @@ void move_snake() {
 	// чтоб картинка поотображалась
 	int cnt = 20; // убогий таймер...
 	while (cnt > 0) {
-	  render_snake(snake, snake_length);
+	  render_snake(snake, snake_length, apple_x, apple_y);
 	  cnt--;
 	}
 	//render_snake(snake, snake_length);
@@ -139,32 +137,63 @@ void longer_snake() {
 	if (snake_length >= 63)
 		end_game(1);
 	else {
-	  snake_length += 1;
-	  render_snake(snake, snake_length);
+	  snake_length = snake_length + 1;
+	  // в массиве snake надо подвинуть все элементы на 1 назад, а на первое место поставить последний в зависимости от dir
+	  	for (int i = snake_length - 1; i >= 0; --i) {
+	  		snake[i][0] = snake[i - 1][0];
+	  		snake[i][1] = snake[i - 1][1];
+	  	}
+	  	switch (direction) {
+	  	case DOWN: {
+	  		snake[0][0] = (snake[1][0] + 1) % 8;
+	  		snake[0][1] = snake[1][1];
+	  		break;
+	  	}
+	  	case UP: {
+	  		snake[0][0] = (snake[1][0] - 1 + 8) % 8;
+	  		snake[0][1] = snake[1][1];
+	  		break;
+	  	}
+	  	case LEFT: {
+	  		snake[0][0] = snake[1][0];
+	  		snake[0][1] = (snake[1][1] - 1 + 8) % 8;
+	  		break;
+	  	}
+	  	case RIGHT: {
+	  		snake[0][0] = snake[1][0];
+	  		snake[0][1] = (snake[1][1] + 1) % 8;
+	  		break;
+	  	}
+	  	}
+	  render_snake(snake, snake_length+1, apple_x, apple_y);
 	}
 }
 
 void setup_snake() {
+	srand(clock()); // setup random
 	//render_snake(snake, snake_length);
 	// чтоб картинка поотображалась
 	int cnt = 20; // убогий таймер...
 	while (cnt > 0) {
-	  render_snake(snake, snake_length);
+		render_snake(snake, snake_length, apple_x, apple_y);
 	  cnt--;
 	}
 	// gen apple
+	generate_apple();
 }
 
 void run_snake() {
 	if (game_flag) {
+		if (check_apple()) {
+			longer_snake();
+			generate_apple();
+		}
         move_snake();
 		if (check_intersection()) {
 			end_game(0);
 			return;
 		}
-		//if (check_apple()) {
-		//	longer_snake();
-		//}
+
 		run_snake();
 	}
 }

@@ -38,7 +38,7 @@ void draw_columns(uint8_t matrix[8][8]) {
 
 /* TODO: add apple
  */
-void render_snake(uint8_t snake[64][2], uint8_t length) {
+void render_snake(uint8_t snake[64][2], volatile uint8_t length, uint8_t apple_x, uint8_t apple_y) {
 	uint8_t frame[8][8] = {
 			{0, 0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0, 0},
@@ -49,11 +49,12 @@ void render_snake(uint8_t snake[64][2], uint8_t length) {
 			{0, 0, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 0, 0}
 	};
-	for (uint8_t i = 0; i < 3; ++i) {
+	for (uint8_t i = 0; i < length; ++i) {
 		uint8_t row = snake[i][0],
 		    col = snake[i][1];
 		frame[row][col] = 1;
 	}
+	frame[apple_x][apple_y] = 2;
 	draw_columns(frame);
 /*
     // чтоб картинка поотображалась

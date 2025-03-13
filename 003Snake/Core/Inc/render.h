@@ -32,7 +32,7 @@ static uint8_t good_game[8][8] = {
 		{0, 0, 0, 1, 1, 0, 0, 0}
 };
 
-void render_snake(uint8_t snake[64][2], uint8_t length);
+void render_snake(uint8_t snake[64][2], volatile uint8_t length, uint8_t apple_x, uint8_t apple_y);
 
 /* Draw matrix column by column.
  */
