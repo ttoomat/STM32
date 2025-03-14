@@ -2,8 +2,8 @@
 ../Core/Src/logic.c:41:6:set_direction	16	static
 ../Core/Src/logic.c:76:6:move_snake	16	static
 ../Core/Src/logic.c:114:6:end_game	16	static
-../Core/Src/logic.c:126:9:check_intersection	4	static
-../Core/Src/logic.c:130:9:check_apple	4	static
-../Core/Src/logic.c:136:6:longer_snake	16	static
-../Core/Src/logic.c:172:6:setup_snake	16	static
-../Core/Src/logic.c:185:6:run_snake	8	static
+../Core/Src/logic.c:126:9:check_intersection	16	static
+../Core/Src/logic.c:134:9:check_apple	4	static
+../Core/Src/logic.c:140:6:longer_snake	16	static
+../Core/Src/logic.c:176:6:setup_snake	16	static
+../Core/Src/logic.c:189:6:run_snake	8	static

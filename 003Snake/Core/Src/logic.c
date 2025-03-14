@@ -103,7 +103,7 @@ void move_snake() {
 	}
 	}
 	// чтоб картинка поотображалась
-	int cnt = 20; // убогий таймер...
+	int cnt = 30; // убогий таймер...
 	while (cnt > 0) {
 	  render_snake(snake, snake_length, apple_x, apple_y);
 	  cnt--;
@@ -124,6 +124,10 @@ void end_game(uint8_t res) {
 }
 
 uint8_t check_intersection() {
+	for (int i = 3; i < snake_length; ++i) {
+		if (snake[0][0] == snake[i][0] && snake[0][1] == snake[i][1])
+			return 1;
+	}
 	return 0;
 }
 
@@ -171,29 +175,28 @@ void longer_snake() {
 
 void setup_snake() {
 	srand(clock()); // setup random
+	generate_apple();
 	//render_snake(snake, snake_length);
 	// чтоб картинка поотображалась
-	int cnt = 20; // убогий таймер...
+	int cnt = 30; // убогий таймер...
 	while (cnt > 0) {
 		render_snake(snake, snake_length, apple_x, apple_y);
 	  cnt--;
 	}
-	// gen apple
-	generate_apple();
+
 }
 
 void run_snake() {
 	if (game_flag) {
 		if (check_apple()) {
-			longer_snake();
 			generate_apple();
+			longer_snake();
 		}
-        move_snake();
 		if (check_intersection()) {
 			end_game(0);
 			return;
 		}
-
+		move_snake();
 		run_snake();
 	}
 }
