@@ -141,9 +141,8 @@ void longer_snake() {
 	if (snake_length >= 63)
 		end_game(1);
 	else {
-	  snake_length = snake_length + 1;
 	  // в массиве snake надо подвинуть все элементы на 1 назад, а на первое место поставить последний в зависимости от dir
-	  	for (int i = snake_length - 1; i >= 0; --i) {
+	  	for (int i = snake_length; i > 0; --i) {
 	  		snake[i][0] = snake[i - 1][0];
 	  		snake[i][1] = snake[i - 1][1];
 	  	}
@@ -169,7 +168,14 @@ void longer_snake() {
 	  		break;
 	  	}
 	  	}
-	  render_snake(snake, snake_length+1, apple_x, apple_y);
+	  snake_length = snake_length + 1;
+	  // чтоб картинка поотображалась
+	  	int cnt = 30; // убогий таймер...
+	  	while (cnt > 0) {
+	  	  render_snake(snake, snake_length, apple_x, apple_y);
+	  	  cnt--;
+	  	}
+	  //render_snake(snake, snake_length, apple_x, apple_y);
 	}
 }
 
@@ -191,12 +197,13 @@ void run_snake() {
 		if (check_apple()) {
 			generate_apple();
 			longer_snake();
+		} else {
+			if (check_intersection()) {
+				end_game(0);
+				return;
+			}
+			move_snake();
 		}
-		if (check_intersection()) {
-			end_game(0);
-			return;
-		}
-		move_snake();
 		run_snake();
 	}
 }

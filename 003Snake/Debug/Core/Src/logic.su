@@ -5,5 +5,5 @@
 ../Core/Src/logic.c:126:9:check_intersection	16	static
 ../Core/Src/logic.c:134:9:check_apple	4	static
 ../Core/Src/logic.c:140:6:longer_snake	16	static
-../Core/Src/logic.c:176:6:setup_snake	16	static
-../Core/Src/logic.c:189:6:run_snake	8	static
+../Core/Src/logic.c:182:6:setup_snake	16	static
+../Core/Src/logic.c:195:6:run_snake	8	static
