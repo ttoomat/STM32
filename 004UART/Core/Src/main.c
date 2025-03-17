@@ -93,14 +93,26 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  //uint16_t size = 8;
-  //uint8_t str[] = "Hi\n\0";
- uint8_t str[] = "Проверка передачи UART\r\n\0";
+
+ uint8_t data;
 
   while (1)
   {
 
-	HAL_UART_Transmit(&huart2, str, 48, 48);
+	  HAL_UART_Receive(&huart2, &data, 1, HAL_MAX_DELAY);
+	  HAL_UART_Transmit(&huart2, &data, 1, HAL_MAX_DELAY);
+
+	 if (data == '1') {
+	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_SET);  // Включаем красный светодиод
+	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET); // Выключаем зеленый светодиод
+	    } else if (data == '2') {
+	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_SET);  // Включаем зеленый светодиод
+	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_RESET); // Выключаем красный светодиод
+	    } else {
+	        // Если получен другой сигнал, выключаем оба светодиода
+	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_RESET);
+	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET);
+	    }
 	HAL_Delay(500);
 
   /* USER CODE END WHILE */
@@ -112,7 +124,6 @@ int main(void)
 		GPIOC->ODR |= (1 << 3);
     HAL_Delay(500);
 */
-    //HAL_UART_Transmit_IT(&huart2, str, size);
 
     /* USER CODE END WHILE */
 
