@@ -1,0 +1,30 @@
+/*
+ * render.h
+ *
+ *  Created on: Mar 18, 2025
+ *      Author: tt
+ */
+
+#ifndef INC_RENDER_H_
+#define INC_RENDER_H_
+
+#include "main.h"
+
+uint16_t displayPins[] = {A_Pin, B_Pin, C_Pin, D_Pin, E_Pin, F_Pin, G_Pin, DP_Pin}; // A, B, C, D, E, F, G, DP pins
+/* Codes of numbers 0-9 */
+int num[10][8] = {{1, 1, 1, 1, 1, 1, 0, 1},
+  {0, 1, 1, 0, 0, 0, 0, 1},
+  {1, 1, 0, 1, 1, 0, 1, 1},
+  {1, 1, 1, 1, 0, 0, 1, 1},
+  {0, 1, 1, 0, 0, 1, 1, 1},
+  {1, 0, 1, 1, 0, 1, 1, 1},
+  {1, 0, 1, 1, 1, 1, 1, 1},
+  {1, 1, 1, 0, 0, 0, 0, 1},
+  {1, 1, 1, 1, 1, 1, 1, 1},
+  {1, 1, 1, 1, 0, 1, 1, 1}};
+
+int N = 8; // number of diaplay segments
+
+
+
+#endif /* INC_RENDER_H_ */

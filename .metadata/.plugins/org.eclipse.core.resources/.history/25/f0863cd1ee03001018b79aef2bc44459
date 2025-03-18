@@ -1,0 +1,32 @@
+/*
+ * render.c
+ *
+ *  Created on: Mar 18, 2025
+ *      Author: tt
+ */
+
+#include "main.h"
+
+uint16_t display_pins[] = {A_Pin, B_Pin, C_Pin, D_Pin, E_Pin, F_Pin, G_Pin, DP_Pin}; // A, B, C, D, E, F, G, DP pins
+GPIO_TypeDef* display_ports[] = {A_GPIO_Port, B_GPIO_Port, C_GPIO_Port, D_GPIO_Port,
+		E_GPIO_Port, F_GPIO_Port, G_GPIO_Port, DP_GPIO_Port};
+
+/* Codes of numbers 0-9 */
+int num[10][8] = {{1, 1, 1, 1, 1, 1, 0, 1},
+  {0, 1, 1, 0, 0, 0, 0, 1},
+  {1, 1, 0, 1, 1, 0, 1, 1},
+  {1, 1, 1, 1, 0, 0, 1, 1},
+  {0, 1, 1, 0, 0, 1, 1, 1},
+  {1, 0, 1, 1, 0, 1, 1, 1},
+  {1, 0, 1, 1, 1, 1, 1, 1},
+  {1, 1, 1, 0, 0, 0, 0, 1},
+  {1, 1, 1, 1, 1, 1, 1, 1},
+  {1, 1, 1, 1, 0, 1, 1, 1}};
+
+int N = 8; // number of display segments
+
+void display_num(uint8_t number, uint8_t digit) {
+	HAL_GPIO_WritePin(display_ports[digit], display_pins[digit], GPIO_PIN_RESET);
+}
+
+

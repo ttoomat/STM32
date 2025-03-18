@@ -1,0 +1,2 @@
+../Core/Src/render.c:31:6:turn_off_display	16	static
+../Core/Src/render.c:43:6:display_num	24	static
