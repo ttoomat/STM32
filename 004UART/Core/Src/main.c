@@ -65,6 +65,9 @@ static void MX_USART2_UART_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	uint8_t n_leds = 2;
+	uint16_t led_pins[] = {GPIO_PIN_2, GPIO_PIN_3};
+	GPIO_TypeDef* led_ports[] = {GPIOC, GPIOC};
 
   /* USER CODE END 1 */
 
@@ -94,36 +97,33 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
- uint8_t data;
+  uint8_t data;
 
   while (1)
   {
+    HAL_UART_Receive_IT(&huart2, &data, 1);
 
-	  HAL_UART_Receive(&huart2, &data, 1, HAL_MAX_DELAY);
-	  HAL_UART_Transmit(&huart2, &data, 1, HAL_MAX_DELAY);
+    for (uint8_t i = 0; i < n_leds; i++) {
+	  HAL_GPIO_WritePin(led_ports[i], led_pins[i], GPIO_PIN_RESET);
+	}
+    switch (data) {
+      case '1': {
+        HAL_GPIO_WritePin(led_ports[0], led_pins[0], GPIO_PIN_SET);
+        break;
+      }
+      case '2': {
+    	HAL_GPIO_WritePin(led_ports[1], led_pins[1], GPIO_PIN_SET);
+        break;
+      }
+      default: {
+    	for (uint8_t i = 0; i < n_leds; i++) {
+    	  HAL_GPIO_WritePin(led_ports[i], led_pins[i], GPIO_PIN_RESET);
+    	}
+    	break;
+      }
+    }
 
-	 if (data == '1') {
-	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_SET);  // Включаем красный светодиод
-	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET); // Выключаем зеленый светодиод
-	    } else if (data == '2') {
-	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_SET);  // Включаем зеленый светодиод
-	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_RESET); // Выключаем красный светодиод
-	    } else {
-	        // Если получен другой сигнал, выключаем оба светодиода
-	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_RESET);
-	        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET);
-	    }
-	HAL_Delay(500);
-
-  /* USER CODE END WHILE */
-	  /* USER CODE BEGIN 3 */
-
-/*
-	HAL_UART_Receive_IT(&huart2, str, size);
-	if (str[0] == 1)
-		GPIOC->ODR |= (1 << 3);
     HAL_Delay(500);
-*/
 
     /* USER CODE END WHILE */
 
