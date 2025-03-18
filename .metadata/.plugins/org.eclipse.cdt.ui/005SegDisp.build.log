@@ -1,18 +1,17 @@
-18:49:58 **** Incremental Build of configuration Debug for project 005SegDisp ****
+18:58:16 **** Incremental Build of configuration Debug for project 005SegDisp ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/render.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/render.d" -MT"Core/Src/render.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/render.o"
 arm-none-eabi-gcc -o "005SegDisp.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\005SegDisp\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="005SegDisp.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 005SegDisp.elf
  
 arm-none-eabi-size   005SegDisp.elf 
 arm-none-eabi-objdump -h -S  005SegDisp.elf  > "005SegDisp.list"
    text	   data	    bss	    dec	    hex	filename
-  14228	    176	   1712	  16116	   3ef4	005SegDisp.elf
+  14224	    176	   1712	  16112	   3ef0	005SegDisp.elf
 Finished building: default.size.stdout
  
 Finished building: 005SegDisp.list
  
 
-18:50:06 Build Finished. 0 errors, 0 warnings. (took 7s.730ms)
+18:58:23 Build Finished. 0 errors, 0 warnings. (took 7s.559ms)
 

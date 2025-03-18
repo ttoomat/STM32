@@ -103,7 +103,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	display_time(cur_time/2 - 1);
+
+	  display_time(cur_time/2 - 1);
   }
   /* USER CODE END 3 */
 }
