@@ -1,2 +1,5 @@
 ../Core/Src/render.c:31:6:turn_off_display	16	static
 ../Core/Src/render.c:43:6:display_num	24	static
+../Core/Src/render.c:63:13:sec_to_time	32	static
+../Core/Src/render.c:73:6:display_time	24	static
+../Core/Src/render.c:85:6:display_big_num	24	static
