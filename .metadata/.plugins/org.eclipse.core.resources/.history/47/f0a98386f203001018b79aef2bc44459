@@ -96,11 +96,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    display_num(1, 0);
-    display_num(2, 1);
-    display_num(3, 2);
-    display_num(4, 3);
-    display_num(10, 5);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
