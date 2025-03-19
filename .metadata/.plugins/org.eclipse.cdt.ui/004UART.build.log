@@ -1,25 +1,17 @@
-12:51:12 **** Incremental Build of configuration Debug for project 004UART ****
+16:44:10 **** Incremental Build of configuration Debug for project 004UART ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/auxiliary.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/auxiliary.d" -MT"Core/Src/auxiliary.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/auxiliary.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/auxiliary.c: In function 'data_interpretation':
-../Core/Src/auxiliary.c:20:5: warning: unused variable 'PING' [-Wunused-variable]
-   20 |    *PING = (uint8_t *)"PING",
-      |     ^~~~
-../Core/Src/auxiliary.c:19:5: warning: unused variable 'DATA' [-Wunused-variable]
-   19 |    *DATA = (uint8_t *)"DATA",
-      |     ^~~~
 arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 004UART.elf
  
 arm-none-eabi-size   004UART.elf 
 arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
    text	   data	    bss	    dec	    hex	filename
-  11848	     20	   1636	  13504	   34c0	004UART.elf
+  12080	     24	   1640	  13744	   35b0	004UART.elf
 Finished building: default.size.stdout
  
 Finished building: 004UART.list
  
 
-12:51:12 Build Finished. 0 errors, 2 warnings. (took 521ms)
+16:44:11 Build Finished. 0 errors, 0 warnings. (took 608ms)
 

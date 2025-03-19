@@ -17,6 +17,8 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <stdio.h> // sizeof
+
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -110,43 +112,56 @@ int main(void)
   while (1)
   {
     HAL_UART_Receive_IT(&huart2, data, data_size);
-
-    for (uint8_t i = 0; i < n_leds; i++) {
-	  HAL_GPIO_WritePin(led_ports[i], led_pins[i], GPIO_PIN_RESET);
-	}
     uint8_t res = data_interpretation(data, data_size);
 
     switch (res) {
+      // turn off all the leds
       case 1: {
+    	uint8_t arr[] = {'0', '0'};
+        set_led_status(arr);
 	    for (uint8_t i = 0; i < n_leds; i++) {
 	      HAL_GPIO_WritePin(led_ports[i], led_pins[i], GPIO_PIN_RESET);
 	    }
 	    HAL_UART_Transmit_IT(&huart2, data, data_size);
 	    break;
       }
+      // turn on all the leds
       case 2: {
+    	uint8_t arr[] = {'1', '1'};
+    	set_led_status(arr);
 	    for (uint8_t i = 0; i < n_leds; i++) {
 		  HAL_GPIO_WritePin(led_ports[i], led_pins[i], GPIO_PIN_SET);
 		}
 	    HAL_UART_Transmit_IT(&huart2, data, data_size);
 		break;
       }
+      // turn on red led
       case 3: {
+    	uint8_t* arr = get_led_status();
+    	arr[0] = '1';
+    	set_led_status(arr);
         HAL_GPIO_WritePin(led_ports[0], led_pins[0], GPIO_PIN_SET);
-        HAL_UART_Transmit_IT(&huart2, data, data_size);
+        //HAL_UART_Transmit_IT(&huart2, data, data_size);
         break;
       }
+      // turn on green led
       case 4: {
+    	uint8_t* arr = get_led_status();
+		arr[1] = '1';
+        set_led_status(arr);
     	HAL_GPIO_WritePin(led_ports[1], led_pins[1], GPIO_PIN_SET);
     	HAL_UART_Transmit_IT(&huart2, data, data_size);
         break;
       }
+      // ping - repeat the command
       case 5: {
 	    HAL_UART_Transmit_IT(&huart2, data, data_size);
 	    break;
       }
+      // data
       case 6: {
-        //
+	    uint8_t* arr = get_led_status();
+    	HAL_UART_Transmit_IT(&huart2, arr, 2);
         break;
       }
     }

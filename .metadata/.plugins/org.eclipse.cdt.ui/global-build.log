@@ -2838,3 +2838,570 @@ Finished building: default.size.stdout
  
 Finished building: 004UART.list
  
+15:13:19 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/auxiliary.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/auxiliary.d" -MT"Core/Src/auxiliary.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/auxiliary.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/auxiliary.c:16:27: warning: excess elements in scalar initializer
+   16 | uint8_t* led_status = {0, 0};
+      |                           ^
+../Core/Src/auxiliary.c:16:27: note: (near initialization for 'led_status')
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:122:38: warning: excess elements in scalar initializer
+  122 |         set_led_status((uint8_t*){0, 0};);
+      |                                      ^
+../Core/Src/main.c:122:38: note: (near initialization for '(anonymous)')
+../Core/Src/main.c:122:40: error: expected ')' before ';' token
+  122 |         set_led_status((uint8_t*){0, 0};);
+      |                                        ^
+      |                                        )
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:13:23 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:122:38: warning: excess elements in scalar initializer
+  122 |         set_led_status((uint8_t*){0, 0};);
+      |                                      ^
+../Core/Src/main.c:122:38: note: (near initialization for '(anonymous)')
+../Core/Src/main.c:122:40: error: expected ')' before ';' token
+  122 |         set_led_status((uint8_t*){0, 0};);
+      |                                        ^
+      |                                        )
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:13:31 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:122:38: warning: excess elements in scalar initializer
+  122 |         set_led_status((uint8_t*){0, 0});
+      |                                      ^
+../Core/Src/main.c:122:38: note: (near initialization for '(anonymous)')
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  11984	     24	   1640	  13648	   3550	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:14:29 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12056	     24	   1640	  13720	   3598	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:15:52 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:142:14: warning: unused variable 'arr' [-Wunused-variable]
+  142 |      uint8_t arr[] = {1, 0};
+      |              ^~~
+../Core/Src/main.c:149:17: warning: unused variable 'arr' [-Wunused-variable]
+  149 |         uint8_t arr[] = {0, 1};
+      |                 ^~~
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12084	     24	   1640	  13748	   35b4	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:21:41 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:142:22: error: invalid initializer
+  142 |      uint8_t arr[] = get_led_status();
+      |                      ^~~~~~~~~~~~~~
+../Core/Src/main.c:151:22: error: invalid initializer
+  151 |      uint8_t arr[] = get_led_status();
+      |                      ^~~~~~~~~~~~~~
+../Core/Src/main.c:165:22: error: invalid initializer
+  165 |      uint8_t arr[] = get_led_status();
+      |                      ^~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:22:18 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:166:52: warning: division 'sizeof (uint8_t * {aka unsigned char *}) / sizeof (uint8_t {aka unsigned char})' does not compute the number of array elements [-Wsizeof-pointer-div]
+  166 |      HAL_UART_Transmit_IT(&huart2, arr, sizeof(arr)/sizeof(arr[0]));
+      |                                                    ^
+../Core/Src/main.c:165:15: note: first 'sizeof' operand was declared here
+  165 |      uint8_t* arr = get_led_status();
+      |               ^~~
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12156	     24	   1640	  13820	   35fc	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:25:15 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:166:52: warning: division 'sizeof (uint8_t * {aka unsigned char *}) / sizeof (uint8_t {aka unsigned char})' does not compute the number of array elements [-Wsizeof-pointer-div]
+  166 |      HAL_UART_Transmit_IT(&huart2, arr, sizeof(arr)/sizeof(arr[0]));
+      |                                                    ^
+../Core/Src/main.c:165:15: note: first 'sizeof' operand was declared here
+  165 |      uint8_t* arr = get_led_status();
+      |               ^~~
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12164	     24	   1640	  13828	   3604	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:26:22 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:166:52: warning: division 'sizeof (uint8_t * {aka unsigned char *}) / sizeof (uint8_t {aka unsigned char})' does not compute the number of array elements [-Wsizeof-pointer-div]
+  166 |      HAL_UART_Transmit_IT(&huart2, arr, sizeof(arr)/sizeof(arr[0]));
+      |                                                    ^
+../Core/Src/main.c:165:15: note: first 'sizeof' operand was declared here
+  165 |      uint8_t* arr = get_led_status();
+      |               ^~~
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12156	     24	   1640	  13820	   35fc	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:32:35 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:168:52: warning: division 'sizeof (uint8_t * {aka unsigned char *}) / sizeof (uint8_t {aka unsigned char})' does not compute the number of array elements [-Wsizeof-pointer-div]
+  168 |      HAL_UART_Transmit_IT(&huart2, arr, sizeof(arr)/sizeof(arr[0]));
+      |                                                    ^
+../Core/Src/main.c:167:15: note: first 'sizeof' operand was declared here
+  167 |      uint8_t* arr = get_led_status();
+      |               ^~~
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12156	     24	   1640	  13820	   35fc	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:33:21 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:167:8: error: 'A' undeclared (first use in this function)
+  167 |        A;
+      |        ^
+../Core/Src/main.c:167:8: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:169:52: warning: division 'sizeof (uint8_t * {aka unsigned char *}) / sizeof (uint8_t {aka unsigned char})' does not compute the number of array elements [-Wsizeof-pointer-div]
+  169 |      HAL_UART_Transmit_IT(&huart2, arr, sizeof(arr)/sizeof(arr[0]));
+      |                                                    ^
+../Core/Src/main.c:168:15: note: first 'sizeof' operand was declared here
+  168 |      uint8_t* arr = get_led_status();
+      |               ^~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:33:50 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12156	     24	   1640	  13820	   35fc	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:34:58 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12172	     24	   1640	  13836	   360c	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:36:32 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12088	     24	   1640	  13752	   35b8	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:38:13 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12024	     24	   1640	  13688	   3578	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:39:55 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12024	     24	   1640	  13688	   3578	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:40:58 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12036	     24	   1640	  13700	   3584	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:47:40 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:168:31: warning: excess elements in scalar initializer
+  168 |      const uint8_t* arr = {0, 1};
+      |                               ^
+../Core/Src/main.c:168:31: note: (near initialization for 'arr')
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12032	     24	   1640	  13696	   3580	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:48:49 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:168:25: warning: excess elements in scalar initializer
+  168 |      uint8_t* arr = {0, 1};
+      |                         ^
+../Core/Src/main.c:168:25: note: (near initialization for 'arr')
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12032	     24	   1640	  13696	   3580	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:49:54 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12040	     24	   1640	  13704	   3588	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:51:33 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12040	     24	   1640	  13704	   3588	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:53:06 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/auxiliary.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/auxiliary.d" -MT"Core/Src/auxiliary.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/auxiliary.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/auxiliary.c:16:27: warning: excess elements in scalar initializer
+   16 | uint8_t* led_status = {0, 0};
+      |                           ^
+../Core/Src/auxiliary.c:16:27: note: (near initialization for 'led_status')
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:170:36: error: 'arr' undeclared (first use in this function)
+  170 |      HAL_UART_Transmit_IT(&huart2, arr, 2);
+      |                                    ^~~
+../Core/Src/main.c:170:36: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:53:33 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12036	     24	   1640	  13700	   3584	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:54:42 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/auxiliary.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/auxiliary.d" -MT"Core/Src/auxiliary.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/auxiliary.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/auxiliary.c:16:24: warning: initialization of 'uint8_t *' {aka 'unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   16 | uint8_t* led_status = {'0', '0'};
+      |                        ^~~
+../Core/Src/auxiliary.c:16:24: note: (near initialization for 'led_status')
+../Core/Src/auxiliary.c:16:29: warning: excess elements in scalar initializer
+   16 | uint8_t* led_status = {'0', '0'};
+      |                             ^~~
+../Core/Src/auxiliary.c:16:29: note: (near initialization for 'led_status')
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12040	     28	   1636	  13704	   3588	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:55:26 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/auxiliary.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/auxiliary.d" -MT"Core/Src/auxiliary.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/auxiliary.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12044	     24	   1640	  13708	   358c	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:56:04 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12032	     24	   1640	  13696	   3580	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+15:58:50 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/auxiliary.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/auxiliary.d" -MT"Core/Src/auxiliary.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/auxiliary.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12032	     24	   1640	  13696	   3580	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+16:01:52 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/auxiliary.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/auxiliary.d" -MT"Core/Src/auxiliary.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/auxiliary.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12032	     24	   1640	  13696	   3580	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+16:03:46 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12096	     24	   1640	  13760	   35c0	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+16:04:23 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:120:33: error: unknown type name 'd'
+  120 |      uint8_t arr[] = {'0', '0'};d
+      |                                 ^
+../Core/Src/main.c:121:9: warning: parameter names (without types) in function declaration
+  121 |         set_led_status(arr);
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c:121:9: error: conflicting types for 'set_led_status'
+In file included from ../Core/Src/main.c:26:
+../Core/Inc/auxiliary.h:11:6: note: previous declaration of 'set_led_status' was here
+   11 | void set_led_status(uint8_t* status);
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:120:14: warning: unused variable 'arr' [-Wunused-variable]
+  120 |      uint8_t arr[] = {'0', '0'};d
+      |              ^~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+16:04:29 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12032	     24	   1640	  13696	   3580	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+16:05:15 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12032	     24	   1640	  13696	   3580	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+16:06:43 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12048	     24	   1640	  13712	   3590	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+16:07:12 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12096	     24	   1640	  13760	   35c0	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 
+16:44:10 **** Incremental Build of configuration Debug for project 004UART ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "004UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tt\STM32CubeIDE\workspace_1.9.0\004UART\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004UART.elf
+ 
+arm-none-eabi-size   004UART.elf 
+arm-none-eabi-objdump -h -S  004UART.elf  > "004UART.list"
+   text	   data	    bss	    dec	    hex	filename
+  12080	     24	   1640	  13744	   35b0	004UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 004UART.list
+ 

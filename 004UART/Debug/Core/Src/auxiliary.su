@@ -1,1 +1,3 @@
-../Core/Src/auxiliary.c:16:9:data_interpretation	40	static
+../Core/Src/auxiliary.c:19:6:set_led_status	24	static
+../Core/Src/auxiliary.c:28:10:get_led_status	4	static
+../Core/Src/auxiliary.c:32:9:data_interpretation	40	static
