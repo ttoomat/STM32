@@ -1,0 +1,23 @@
+/*
+ * auxiliary.c
+ *
+ *  Created on: Mar 19, 2025
+ *      Author: tt
+ */
+
+//#include <stdlib.h> // string
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+
+//#include "main.h"
+
+uint8_t data_interpretation(uint8_t *data, uint8_t size) {
+	const uint8_t *ALON = (uint8_t *)"ALON",
+			*ALOF = (uint8_t *)"ALOF",
+			*DATA = (uint8_t *)"DATA";
+	 if (memcmp(data, ALOF, size) == 0) return 1;
+	 if (memcmp(data, ALON, size) == 0) return 2;
+	 return 0;
+}

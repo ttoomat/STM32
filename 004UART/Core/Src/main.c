@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "auxiliary.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,8 +66,8 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	uint8_t n_leds = 2;
-	uint16_t led_pins[] = {GPIO_PIN_2, GPIO_PIN_3};
-	GPIO_TypeDef* led_ports[] = {GPIOC, GPIOC};
+	uint16_t led_pins[] = {red_led_Pin, green_led_Pin};
+	GPIO_TypeDef* led_ports[] = {red_led_GPIO_Port, green_led_GPIO_Port};
 
   /* USER CODE END 1 */
 
@@ -97,29 +97,57 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  uint8_t data;
+  /* Receive data format.
+   * PING - check connection (ping).
+   * ALON - turn on all the leds. -- all on
+   * ALOF - turn off all the leds. -- all off
+   * ONV[1-2] - turn on red/green led. -- turn on variant
+   * DATA - return led data. 10 - red, 01 - green, 11 - all on, 00 - all off.
+   */
+  uint8_t data_size = 4;
+  uint8_t data[data_size];
 
   while (1)
   {
-    HAL_UART_Receive_IT(&huart2, &data, 1);
+    HAL_UART_Receive_IT(&huart2, data, data_size);
 
     for (uint8_t i = 0; i < n_leds; i++) {
 	  HAL_GPIO_WritePin(led_ports[i], led_pins[i], GPIO_PIN_RESET);
 	}
-    switch (data) {
-      case '1': {
+    uint8_t res = data_interpretation(data, data_size);
+
+    switch (res) {
+      case 1: {
+	    for (uint8_t i = 0; i < n_leds; i++) {
+	      HAL_GPIO_WritePin(led_ports[i], led_pins[i], GPIO_PIN_RESET);
+	    }
+	    HAL_UART_Transmit_IT(&huart2, data, data_size);
+	    break;
+      }
+      case 2: {
+	    for (uint8_t i = 0; i < n_leds; i++) {
+		  HAL_GPIO_WritePin(led_ports[i], led_pins[i], GPIO_PIN_SET);
+		}
+	    HAL_UART_Transmit_IT(&huart2, data, data_size);
+		break;
+      }
+      case 3: {
         HAL_GPIO_WritePin(led_ports[0], led_pins[0], GPIO_PIN_SET);
+        HAL_UART_Transmit_IT(&huart2, data, data_size);
         break;
       }
-      case '2': {
+      case 4: {
     	HAL_GPIO_WritePin(led_ports[1], led_pins[1], GPIO_PIN_SET);
+    	HAL_UART_Transmit_IT(&huart2, data, data_size);
         break;
       }
-      default: {
-    	for (uint8_t i = 0; i < n_leds; i++) {
-    	  HAL_GPIO_WritePin(led_ports[i], led_pins[i], GPIO_PIN_RESET);
-    	}
-    	break;
+      case 5: {
+	    HAL_UART_Transmit_IT(&huart2, data, data_size);
+	    break;
+      }
+      case 6: {
+        //
+        break;
       }
     }
 
@@ -216,18 +244,28 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, red_led_Pin|green_led_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(green_led_GPIO_Port, green_led_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : red_led_Pin green_led_Pin */
-  GPIO_InitStruct.Pin = red_led_Pin|green_led_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(red_led_GPIO_Port, red_led_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : green_led_Pin */
+  GPIO_InitStruct.Pin = green_led_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(green_led_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : red_led_Pin */
+  GPIO_InitStruct.Pin = red_led_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(red_led_GPIO_Port, &GPIO_InitStruct);
 
 }
 

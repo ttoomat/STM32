@@ -1,0 +1,38 @@
+/*
+ * auxiliary.c
+ *
+ *  Created on: Mar 19, 2025
+ *      Author: tt
+ */
+
+#include <stdlib.h> // string
+
+#include "main.h"
+
+uint8_t data_interpretation(uint8_t *data, uint8_t size) {
+	uint8_t ALON[] = {(uint8_t)'A', (uint8_t)'L', (uint8_t)'O', (uint8_t)'N'};
+	uint8_t ALOF[] = {(uint8_t)'A', (uint8_t)'L', (uint8_t)'O', (uint8_t)'F'};
+	uint8_t ONV1[] = {(uint8_t)'O', (uint8_t)'N', (uint8_t)'V', (uint8_t)'1'};
+	uint8_t ONV2[] = {(uint8_t)'O', (uint8_t)'N', (uint8_t)'V', (uint8_t)'2'};
+	uint8_t DATA[] = {(uint8_t)'D', (uint8_t)'A', (uint8_t)'T', (uint8_t)'A'};
+
+	uint8_t isAlon = 1, isAlof = 1, isOnv1 = 1, isOnv2 = 1, isData = 1;
+	for (uint8_t i = 0; i < size; ++i) {
+		if (data[i] != ALON[i])
+			isAlon = 0;
+		if (data[i] != ALOF[i])
+			isAlof = 0;
+        if (data[i] != ONV1[i])
+			isOnv1 = 0;
+        if (data[i] != ONV2[i])
+			isOnv2 = 0;
+        if (data[i] != DATA[i])
+			isData = 0;
+	}
+	if (isAlon) return 1;
+	if (isAlof) return 2;
+	if (isOnv1) return 3;
+	if (isOnv2) return 4;
+	if (isData) return 5;
+	return 0;
+}
