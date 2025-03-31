@@ -1,34 +1,17 @@
-09:50:39 **** Incremental Build of configuration Debug for project 006Sin ****
+12:22:36 **** Incremental Build of configuration Debug for project 006Sin ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:117:5: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-  117 |     sprintf((char*)txbuf, "Returned: %f\r\n", meas_flt);
-      |     ^~~~~~~
-../Core/Src/main.c:117:5: warning: incompatible implicit declaration of built-in function 'sprintf'
-../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-   20 | #include "main.h"
-  +++ |+#include <stdio.h>
-   21 | 
-../Core/Src/main.c:118:39: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
-  118 |     HAL_UART_Transmit(&huart2, txbuf, strlen((char*)txbuf), HAL_MAX_DELAY);
-      |                                       ^~~~~~
-../Core/Src/main.c:118:39: warning: incompatible implicit declaration of built-in function 'strlen'
-../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
-   20 | #include "main.h"
-  +++ |+#include <string.h>
-   21 | 
 arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 006Sin.elf
  
 arm-none-eabi-size   006Sin.elf 
 arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
    text	   data	    bss	    dec	    hex	filename
-  37952	    488	   1752	  40192	   9d00	006Sin.elf
+  42480	    492	   1756	  44728	   aeb8	006Sin.elf
 Finished building: default.size.stdout
  
 Finished building: 006Sin.list
  
 
-09:50:48 Build Finished. 0 errors, 4 warnings. (took 8s.324ms)
+12:22:45 Build Finished. 0 errors, 0 warnings. (took 8s.500ms)
 

@@ -21,7 +21,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h> // snprintf
+#include <string.h> // strlen
+#include <inttypes.h> // print uint32_t
+#include <math.h> // sin
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,7 +49,7 @@ TIM_HandleTypeDef htim3;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-uint32_t cur_time = 0;
+volatile /*uint32_t*/ float cur_time = 0.0, last_time = 4.0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -97,10 +100,10 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   // Start timer in interrupt mode
-    HAL_TIM_Base_Start_IT(&htim3);
+  HAL_TIM_Base_Start_IT(&htim3);
 
-    // Start DAC
-    HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
+  // Start DAC
+  HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
 
   uint8_t txbuf[64];
 
@@ -113,9 +116,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	float meas_flt = 1.44;
-    sprintf((char*)txbuf, "Returned: %f\r\n", meas_flt);
-    HAL_UART_Transmit(&huart2, txbuf, strlen((char*)txbuf), HAL_MAX_DELAY);
+    if (cur_time != last_time) {
+      sprintf((char*)txbuf, "Time: %f sin: %f\r\n", cur_time/2, sin(cur_time/2*M_PI/180.0));
+      HAL_UART_Transmit_IT(&huart2, txbuf, strlen((char*)txbuf));
+      last_time = cur_time;
+    }
   }
   /* USER CODE END 3 */
 }
@@ -232,9 +237,9 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
+  htim3.Init.Prescaler = 17999;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 1000;
+  htim3.Init.Period = 10000;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
@@ -309,7 +314,18 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim->Instance == TIM3) {
-        cur_time += 1;
+    	cur_time += 1.0;
+    	/*
+        cur_time += 1.0; // Увеличиваем счетчик секунд
+        uint8_t txbuf[64];
+        sprintf((char*)txbuf, "Time: %f\r\n", cur_time);
+           HAL_UART_Transmit_IT(&huart2, txbuf, strlen((char*)txbuf));
+           */
+        /*
+        uint8_t buffer[64];
+		sprintf(buffer, "Seconds: %lu\r\n", (unsigned long)cur_time);
+		HAL_UART_Transmit_IT(&huart2, buffer, strlen((char*)buffer));
+		*/
     }
 }
 /* USER CODE END 4 */
