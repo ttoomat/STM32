@@ -96,8 +96,14 @@ int main(void)
   MX_TIM3_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  // Start timer in interrupt mode
+    HAL_TIM_Base_Start_IT(&htim3);
 
-  uint8_t a = 'A';
+    // Start DAC
+    HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
+
+  uint8_t txbuf[64];
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -107,8 +113,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	HAL_UART_Receive_IT(&huart2, &a, 1);
-    HAL_UART_Transmit_IT(&huart2, &a, 1);
+	float meas_flt = 1.44;
+    sprintf((char*)txbuf, "Returned: %f\r\n", meas_flt);
+    HAL_UART_Transmit(&huart2, txbuf, strlen((char*)txbuf), HAL_MAX_DELAY);
   }
   /* USER CODE END 3 */
 }
