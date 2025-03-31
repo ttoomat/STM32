@@ -123,7 +123,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
     if (cur_time != last_time) {
 
-      HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, (uint32_t)((float)maxDACData * (sin(cur_time/2*M_PI/180.0)+1.0))/2.0);
+      HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, (float)maxDACData * sin(cur_time/2*M_PI/180.0));
       sprintf((char*)txbuf, "Time: %f sin: %f\r\n", cur_time/2, sin(cur_time/2*M_PI/180.0));
       HAL_UART_Transmit_IT(&huart2, txbuf, strlen((char*)txbuf));
       last_time = cur_time;
@@ -244,9 +244,9 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 179;
+  htim3.Init.Prescaler = 17999;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 100;
+  htim3.Init.Period = 10000;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)

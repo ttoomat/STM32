@@ -5879,3 +5879,226 @@ Finished building: default.size.stdout
  
 Finished building: 006Sin.list
  
+14:03:08 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42576	    492	   1756	  44824	   af18	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:05:01 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:111:59: error: 'currentDACData' undeclared (first use in this function)
+  111 |   HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, currentDACData);
+      |                                                           ^~~~~~~~~~~~~~
+../Core/Src/main.c:111:59: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:108:12: warning: unused variable 'maxDACData' [-Wunused-variable]
+  108 |   uint16_t maxDACData = 4095;
+      |            ^~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:05:41 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42688	    492	   1756	  44936	   af88	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:06:59 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42696	    492	   1756	  44944	   af90	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:08:00 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42696	    492	   1756	  44944	   af90	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:11:07 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42696	    492	   1756	  44944	   af90	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:17:32 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42696	    492	   1756	  44944	   af90	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:17:54 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42696	    492	   1756	  44944	   af90	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:21:39 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42696	    492	   1756	  44944	   af90	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:23:30 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42696	    492	   1756	  44944	   af90	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:24:04 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42696	    492	   1756	  44944	   af90	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:24:55 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42696	    492	   1756	  44944	   af90	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:29:29 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42688	    492	   1756	  44936	   af88	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:30:29 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42688	    492	   1756	  44936	   af88	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:35:36 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42744	    492	   1756	  44992	   afc0	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
+14:36:52 **** Incremental Build of configuration Debug for project 006Sin ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "006Sin.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\006Sin\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006Sin.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006Sin.elf
+ 
+arm-none-eabi-size   006Sin.elf 
+arm-none-eabi-objdump -h -S  006Sin.elf  > "006Sin.list"
+   text	   data	    bss	    dec	    hex	filename
+  42744	    492	   1756	  44992	   afc0	006Sin.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006Sin.list
+ 
