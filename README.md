@@ -1,23 +1,3 @@
-# Snake on STM32 Nucleo-F446RE
+Всем привет, здесь мои проекты по STM32. Для каждого я написала небольшой README. Некоторые из проектов связаны с курсом по микроконтроллерам в ИТМО. Более полноценные проекты буду делать отдельными репозиториями.
 
-## Схема проекта
-
-![](https://github.com/ttoomat/STM32/blob/main/003Snake/Doc/sketch_003Snake_png.png)
-
-![](https://github.com/ttoomat/STM32/blob/main/003Snake/Doc/pic1.jpg)
-
-![](https://github.com/ttoomat/STM32/blob/main/003Snake/Doc/pic2.jpg)
-
-## Результат работы программы
-
-Результат выглядит так:
-
-<details><summary>нажмите, чтобы открыть</summary>
-  
-[![](https://github.com/ttoomat/STM32/blob/main/003Snake/Doc/thumbnail.png)](https://github.com/ttoomat/STM32/blob/main/003Snake/Doc/snake_video.mp4)
-
-</details>
-
-Для более подробного ознакомлениями с результатами проекта можете скачать видео:
-
-https://github.com/ttoomat/STM32/blob/main/003Snake/Doc/snake_video.mp4
+Напоминание: для сохранения русского README.md в Far Manager и отображения в гитхабе - кодировка UTF-8 (Shift+F8 смена кодировки).
