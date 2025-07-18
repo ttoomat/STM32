@@ -1,17 +1,10 @@
-17:13:49 **** Incremental Build of configuration Debug for project 007Servo ****
+18:55:40 **** Incremental Build of configuration Debug for project 007Servo ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "007Servo.elf" @"objects.list"   -mcpu=cortex-m4 -T"T:\_MyCoolGitHub\STM32\007Servo\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="007Servo.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 007Servo.elf
- 
 arm-none-eabi-size   007Servo.elf 
-arm-none-eabi-objdump -h -S  007Servo.elf  > "007Servo.list"
    text	   data	    bss	    dec	    hex	filename
-  18012	     20	   1900	  19932	   4ddc	007Servo.elf
+  19760	     20	   1900	  21680	   54b0	007Servo.elf
 Finished building: default.size.stdout
  
-Finished building: 007Servo.list
- 
 
-17:14:53 Build Finished. 0 errors, 0 warnings. (took 1m:4s.878ms)
+18:56:18 Build Finished. 0 errors, 0 warnings. (took 38s.321ms)
 
