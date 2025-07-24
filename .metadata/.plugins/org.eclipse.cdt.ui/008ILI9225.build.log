@@ -1,0 +1,10 @@
+15:42:40 **** Incremental Build of configuration Debug for project 008ILI9225 ****
+make -j12 all 
+arm-none-eabi-size   008ILI9225.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9592	     24	   1752	  11368	   2c68	008ILI9225.elf
+Finished building: default.size.stdout
+ 
+
+15:43:15 Build Finished. 0 errors, 0 warnings. (took 35s.149ms)
+
