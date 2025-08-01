@@ -202,6 +202,13 @@ void ST7789H2_DisplayOn(void)
   ST7789H2_WriteReg(ST7789H2_SLEEP_OUT, (uint8_t*)NULL, 0);
 }
 
+void     LCD_IO_Init(void)
+{
+	 HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_RESET);
+	 HAL_Delay(5);
+	 HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_SET);
+	 HAL_Delay(10);
+}
 
 
 void     LCD_IO_Delay(uint32_t delay)
